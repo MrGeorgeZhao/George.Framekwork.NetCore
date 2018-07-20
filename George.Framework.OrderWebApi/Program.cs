@@ -18,8 +18,10 @@ namespace George.Framework.OrderWebApi
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().UseUrls("http://*:9001")
-                .Build();
+            WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration((h, c) =>
+            {
+                c.SetBasePath(h.HostingEnvironment.ContentRootPath)
+              .AddJsonFile("appsettings.json");
+            }).UseStartup<Startup>().UseUrls("http://*:9001").Build();
     }
 }
