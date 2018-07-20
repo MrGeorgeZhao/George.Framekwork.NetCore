@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Ocelot;
-using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
-using George.Framework.Extension;
 
-namespace George.Framekwork.OcelotGateway
+namespace George.Framewok.UserWebApi
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //var bui = new ConfigurationBuilder().AddJsonFile("").Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -30,9 +24,6 @@ namespace George.Framekwork.OcelotGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddOcelot();
-            services.AddAnyCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +34,6 @@ namespace George.Framekwork.OcelotGateway
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOcelot().Wait();
             app.UseMvc();
         }
     }

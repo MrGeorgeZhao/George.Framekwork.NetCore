@@ -9,11 +9,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\George.Framekwork.Application\George.Framekwork.Application.csproj" />
+    <ProjectReference Include="..\George.Framekwork.Domain.Repository\George.Framekwork.Domain.Repository.csproj" />
+    <ProjectReference Include="..\George.Framekwork.Domain\George.Framekwork.Domain.csproj" />
+    <ProjectReference Include="..\George.Framekwork.Infrastructure\George.Framekwork.Infrastructure.csproj" />
+    <ProjectReference Include="..\George.Framekwork.Model\George.Framekwork.Model.csproj" />
   </ItemGroup>
 
 </Project>

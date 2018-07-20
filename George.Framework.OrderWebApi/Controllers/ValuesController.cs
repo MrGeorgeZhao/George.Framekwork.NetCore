@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace George.Framekwork.WebApi.Controllers
+namespace George.Framework.OrderWebApi.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
@@ -13,7 +13,7 @@ namespace George.Framekwork.WebApi.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "down1" };
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5

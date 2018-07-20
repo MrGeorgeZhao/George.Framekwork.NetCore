@@ -16,14 +16,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "George.Framekwork.WebApi": {
+    "George.Framewok.UserWebApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:9000/"
+      "applicationUrl": "http://localhost:52963/"
     }
   }
 }

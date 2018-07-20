@@ -7,9 +7,8 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Ocelot.DependencyInjection;
 
-namespace George.Framekwork.OcelotGateway
+namespace George.Framewok.UserWebApi
 {
     public class Program
     {
@@ -19,11 +18,8 @@ namespace George.Framekwork.OcelotGateway
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration((h, b) =>
-            {
-                b.SetBasePath(h.HostingEnvironment.ContentRootPath)
-                .AddJsonFile("Ocelot.json");
-            }).UseStartup<Startup>().UseUrls("http://*:7000")
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>().UseUrls("http://*:9000")
                 .Build();
     }
 }
