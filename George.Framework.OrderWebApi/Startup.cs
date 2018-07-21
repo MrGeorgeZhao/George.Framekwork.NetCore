@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NLog.Extensions.Logging;
 
 namespace George.Framework.OrderWebApi
 {
@@ -31,7 +32,7 @@ namespace George.Framework.OrderWebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime applicationLifetime)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime applicationLifetime, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -40,7 +41,12 @@ namespace George.Framework.OrderWebApi
 
             app.UseMvc();
 
+            loggerFactory.AddConsole();
+            loggerFactory.AddNLog();
 
+            NLog.LogManager.LoadConfiguration("nlog.config");
+
+           
             ConsulProcessProvider.Register(new ConsulSetting()
             {
                 ClientPort = Configuration.GetValue<int>("Consul:ClientPort"),

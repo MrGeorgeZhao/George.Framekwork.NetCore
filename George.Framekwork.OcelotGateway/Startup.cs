@@ -21,7 +21,6 @@ namespace George.Framekwork.OcelotGateway
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //var bui = new ConfigurationBuilder().AddJsonFile("").Build();
         }
 
         public IConfiguration Configuration { get; }
